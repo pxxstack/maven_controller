@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+        <!--配置包扫描-->
+       <context:component-scan base-package="com.dohia.controller"/>
+
+        <!--配置注解驱动 启动映射器  适配器-->
+       <mvc:annotation-driven/>
+
+        <!--对静态资源放行-->
+       <mvc:default-servlet-handler/>
+
+       <!-- &lt;!&ndash;配置视图解析前缀后缀&ndash;&gt;
+        <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="prefix" value="/pages/"/>
+            <property name="suffix" value=".jsp"/>
+        </bean>-->
+
+      <!--  &lt;!&ndash;配置拦截器&ndash;&gt;
+        <mvc:interceptors>
+            <mvc:interceptor>
+                <mvc:mapping path="/user/*"/>
+                <mvc:mapping path="/role/*"/>
+                &lt;!&ndash;拦截所有&ndash;&gt;
+                &lt;!&ndash;<mvc:mapping path="/**"/>&ndash;&gt;
+              <mvc:exclude-mapping path="/user/login"/>
+                &lt;!&ndash;<mvc:exclude-mapping path="/**.jsp"/>&ndash;&gt;&ndash;&gt;
+                &lt;!&ndash;放行静态资源&ndash;&gt;
+                &lt;!&ndash;<mvc:exclude-mapping path="/**.html"/>&ndash;&gt;
+                <bean class="com.dohia.interceptors.MyInterceptor01"></bean>
+            </mvc:interceptor>
+        </mvc:interceptors>-->
+
+
+
+
+</beans>
